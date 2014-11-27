@@ -1,0 +1,43 @@
+#navigation-menu {
+  position: absolute;
+  right: 0;
+  bottom: 1em;
+  margin: 0;
+  padding: 0;
+}
+
+#navigation-menu li {
+  list-style:none;
+  padding: 0;
+}
+
+#navigation-menu span {
+  width: 0;
+  right: 1em;
+  padding:0;
+  position:absolute;
+  overflow:hidden;
+  font-weight:bold;
+  white-space:nowrap;
+  -webkit-transition: 0.25s;
+  -moz-transition: 0.25s;
+  transition: 0.25s;
+}
+
+#navigation-menu a {
+  width: 1em;
+  height: 1em;
+  display:block;
+  position:relative;
+  opacity: 0.55;
+  color: rgba(0, 0, 0, .5);
+}
+
+#navigation-menu li:hover a span { 
+  width:auto; 
+  padding: 2px 12px; 
+  overflow:visible; 
+}
+#navigation-menu li:hover a {
+  text-decoration:none;
+}

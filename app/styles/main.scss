@@ -1,0 +1,29 @@
+// bower:scss
+// endbower
+
+/*
+  main.scss     is where everything is @include'd
+  vendor/       is for CSS related to some JavaScript libraries
+  modules/      is for mixins, variables and utilities (such as icons)
+  patterns/     is for global styles, buttons, and forms
+  components/   is for groups of patterns with small bits of layout
+  layouts/      is where page layouts go and any page-specific changes to patterns and components
+*/
+
+@import "modules/fonts";
+@import "modules/root";
+@import "modules/utils";
+
+@import "patterns/copyright";
+@import "patterns/colorchooser";
+@import "patterns/settings";
+@import "patterns/navigation";
+
+@import "layouts/screens";
+
+/*
+@import "media-queries.scss";
+
+@include screen(1919px, 2561px) {
+}
+*/

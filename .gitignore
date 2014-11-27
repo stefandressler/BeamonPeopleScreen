@@ -1,0 +1,9 @@
+node_modules
+dist
+.tmp
+.sass-cache
+*.sublime-project
+*.sublime-workspace
+*.DS_Store
+bower_components
+app/scripts/BeamonPeople.Services.Keys.js

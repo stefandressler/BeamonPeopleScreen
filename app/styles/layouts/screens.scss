@@ -1,0 +1,84 @@
+#instafeed { 
+  position: fixed; 
+  top: -50%; 
+  left: -50%; 
+  width: 200%; 
+  height: 200%;
+}
+#instafeed img {
+  position: absolute; 
+  top: 0; left: 0; right: 0; bottom: 0; 
+  margin: auto; 
+  min-width: 50%;
+  min-height: 50%;
+}
+#instafeed-tags
+{
+  position: absolute; 
+  top: 0;
+  left: 0;
+  z-index: 100;
+  padding: 0.8em 1em;
+  font-size: 2vw;
+  line-height: 1em;
+  opacity: 0.55;
+}
+#instafeed-tags strong {
+  padding-right: 0.32em;
+}
+
+#screen-people { 
+  font-size: 32vw;
+}
+
+#screen-activities { 
+  font-size: 0.91vw;
+  line-height: 5.2em;
+  text-align: center; 
+}
+#screen-activities p { 
+  margin-right: 2em;
+  display: inline-block; 
+}
+
+#screen-managementconference {
+  font-size: 3.2vw;
+  line-height: 1.2em;
+}
+
+#screen-poster {
+  font-size: 3.2vw;
+  line-height: 1.2em;
+}
+
+#screen-staff { 
+  font-size: 2.3vw;
+  line-height: 1em;
+  text-align: justify; 
+}
+#screen-staff small { 
+  white-space: nowrap; 
+}
+
+#screen-statistics { 
+  font-size: 3.42vw;
+  line-height: 1.2em;
+  color: rgba(255, 255, 255, 0.5); 
+}
+#screen-statistics span { 
+  color: rgba(255, 255, 255, 1); 
+  white-space: nowrap; 
+}
+
+/* beamonesque */
+rect { fill: rgba(0,0,0,0); font-family: "Open sans", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+
+
+#screen-brewtime p {
+  font-size: 13vw;
+}
+.hot    { background-color: #de5a42; color: #A03420; }
+.medium { background-color: #ef9c28; color: #AD772B; }
+.cold   { background-color: #4aadde; color: #1B739E; }
+/* green #60b38c   color: 198351; */

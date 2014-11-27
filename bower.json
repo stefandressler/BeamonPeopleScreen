@@ -1,0 +1,17 @@
+{
+  "name": "yobeamonpeoplescreen",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1",
+    "knockoutjs": "~3.2.0",
+    "tabletop": "~1.3.5",
+    "instafeed.js": "~1.3.2",
+    "underscore": "~1.7.0",
+    "chartjs": "~1"
+  },
+  "overrides": {
+    "instafeed.js": {
+      "main": "./instafeed.js"
+    }
+  }
+}

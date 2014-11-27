@@ -1,0 +1,23 @@
+.blue { background-color: #86cddc; }
+.lila { background-color: #c671a7; }
+.orange { background-color: #f39200; }
+.green { background-color: #bbd151; }
+.grey { background-color: #d0d0d0; }
+
+#by {
+  position: fixed;
+  bottom: 1em;
+  left: 1em;
+  z-index: 100;
+  border-radius: 2px;
+  font-weight: bold;
+  font-size: 0.72em;
+}
+
+#by a { 
+  opacity: 0.55;
+  color: rgba(255, 255, 255, .5);
+  text-decoration: none; 
+}
+
+#by strong { color: #fff; text-transform: uppercase; }

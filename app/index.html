@@ -1,0 +1,226 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title>BeamonPeopleScreen</title>
+    <meta name="description" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Beamon Nu" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="120x120" href="touch-icon-iphone-retina.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad-retina.png" />
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700" rel="stylesheet" type="text/css" />
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css" />
+    <!-- endbuild -->
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+
+
+    <!-- ### Templates ### -->
+    <template id="screens-template">
+      <i class="loading" data-bind="visible: isLoading(), text: loadingMessage()"></i>
+
+      <!-- component binding without container element -->
+      <!-- ko if: worksheetName() -->
+        <!-- ko component: {
+            name: 'screen-'+worksheetName(),
+            params: { o: worksheetData() }
+        } --><!-- /ko -->
+      <!-- /ko -->
+
+      <ul id="navigation-menu" data-bind="foreach: worksheets()">
+        <li><a data-bind="attr: { href: '#!/' + $data }"><span data-bind="text: $data"></span></a></li>
+      </ul>
+
+      <div id="by">
+        <a href="./"><strong><i class="icon-lab"></i>Beamon People </strong><span>Screen</span></a>
+        <i class="settings" data-bind="click: function() { return randomizeWorksheets(!randomizeWorksheets()); }, css: { 'icon-shuffle': randomizeWorksheets(), 'icon-loop': !randomizeWorksheets() }"></i>
+        <i class="settings" data-bind="click: function() { return autoReloadWorksheets(!autoReloadWorksheets()); }, css: { 'icon-play': autoReloadWorksheets(), 'icon-pause': !autoReloadWorksheets() }"></i>
+        <span class="background-color-chooser">
+          <a href="#" data-bind="click: function() { backgroundColor(null); }">&nbsp;</a>
+          <!-- ko foreach: backgroundColors() -->
+            <a href="#" data-bind="click: function() { $parent.backgroundColor($data); }, css: $data">&nbsp;</a>
+          <!-- /ko -->
+        </span>
+      </div>
+
+    </template>
+
+    <template id="screen-does-not-exist-template"><section><strong>Screen does not exist!</strong></section></template>
+
+    <template id="screen-people-template">
+      <section>
+        <h1 data-bind="text: title"></h1>
+        <strong id="screen-people" data-bind="text: quantity()"></strong>
+      </section>
+    </template>
+
+    <template id="screen-staff-template">
+      <section>
+        <h1 data-bind="text: title"></h1>
+        <div id="screen-staff" class="padH" data-bind="foreach: items">
+          <small data-bind="text: date"></small> <strong data-bind="text: people"></strong>
+        </div>
+      </section>
+    </template>
+
+    <template id="screen-statistics-template">
+      <section>
+        <h1 data-bind="text: title"></h1>
+        <div id="screen-statistics" class="padH" data-bind="foreach: items">
+          <p>
+            På Beamon People är vi <span><strong data-bind="text: men"></strong> män</span> och 
+            <span><strong data-bind="text: women"></strong> kvinnor</span> med ett 
+            <span>genomsnittsålder på <strong data-bind="text: averageage"></strong> år</span> där var och en har genomsnittlig 
+            <span><strong data-bind="text: averageyearsinitbusiness"></strong> år erfarenhet i IT-branschen</span>.
+          </p>
+          <p>
+            Våra kunskaper fördelas på 
+            <span><strong data-bind="text: intern"></strong> interna</span> medarbetare, 
+            <span><strong data-bind="text: ledning"></strong> ledare</span>,
+            <span><strong data-bind="text: krav"></strong> kravare</span>,
+            <span><strong data-bind="text: test"></strong> testare</span>,
+            <span><strong data-bind="text: utveckling"></strong> utvecklare</span> och 
+            <span><strong data-bind="text: ux"></strong> UXare</span>.
+          </p>
+        </div>
+      </section>
+    </template>
+
+    <template id="screen-revenue-template">
+      <section>
+        <h1 data-bind="text: title"></h1>
+        <canvas id="myChartR" style="margin: 0 1em;"></canvas>
+      </section>
+    </template>
+
+    <template id="screen-instagram-template">
+      <div id="instafeed" data-bind="html: singleRandom"></div>
+      <div id="instafeed-tags" data-bind="foreach: tags">
+        <strong data-bind="text: '#'+$data"></strong>
+      </div>
+    </template>
+
+    <template id="screen-brewtime-template">
+      <section>
+        <h1 data-bind="text: title"></h1>
+        <div id="screen-brewtime">
+          <p>
+            <strong data-bind="text: brewDiff()">a</strong>
+          </p>
+          <p>
+            <strong data-bind="text: brewTimestamp()">b</strong>
+          </p>
+        </div>
+      </section>
+    </template>
+
+    <template id="screen-poster-template">
+      <section>
+        <h1 data-bind="text: title"></h1>
+        <div id="screen-poster" class="padH" data-bind="foreach: items">
+          <p>
+            <strong data-bind="text: $data.item"></strong>
+          </p>
+        </div>
+      </section>
+    </template>
+
+    <template id="screen-activities-template">
+      <section>
+        <h1 data-bind="text: title"></h1>
+        <div id="screen-activities" class="padH" data-bind="foreach: items">
+          <p>
+            <strong data-bind="text: activity, style: { fontSize: fontsize + 'em', fontWeight: fontweight, opacity: opacity }"></strong>
+          </p>
+        </div>
+      </section>
+    </template>
+
+    <template id="screen-managementconference-template">
+      <section>
+        <h1 data-bind="text: title"></h1>
+        <div id="screen-managementconference" class="padH" data-bind="foreach: items">
+          <p>
+            <strong data-bind="text: ämne"></strong> <!--<br /><small data-bind="text: kommentarfrånmötet"></small>-->
+          </p>
+        </div>
+      </section>
+    </template>
+
+    <template id="screen-missionmap-template">
+      <section>
+        <h1 data-bind="text: title"></h1>
+        <div id="chart_missionmap" style="width: 100%; height: 100%;"><i></i></div>
+      </section>
+    </template>
+
+    <template id="screen-beamonesque-template">
+      <section>
+        <h1 data-bind="text: title"></h1>
+        <div id="chart_beamonesque" style="width: 100%; height: 100%;"><i></i></div>
+      </section>
+    </template>
+
+
+
+    <!-- ### Content ### -->
+    <screens data-config="screens"></screens>
+
+
+
+    <!-- ### Scripts ### -->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/knockoutjs/dist/knockout.js"></script>
+    <script src="bower_components/tabletop/src/tabletop.js"></script>
+    <script src="bower_components/instafeed.js/instafeed.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/chartjs/Chart.min.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({app,.tmp}) scripts/main.js -->
+    <script type="text/javascript" src="scripts/BeamonPeople.Config.js"></script>
+    <script type="text/javascript" src="scripts/BeamonPeople.Utils.js"></script>
+    <script type="text/javascript" src="scripts/BeamonPeople.Services.Keys.js"></script>
+    <script type="text/javascript" src="scripts/BeamonPeople.Services.js"></script>
+    <script type="text/javascript" src="scripts/BeamonPeople.HashMapper.js"></script>
+
+    <script type="text/javascript" src="scripts/BeamonPeople.KOInit.js"></script>
+
+    <script type="text/javascript" src="scripts/BeamonPeople.Config.Screens.js"></script>
+
+    <script type="text/javascript" src="scripts/BeamonPeople.ViewModel.Screens.js"></script>
+    <script type="text/javascript" src="scripts/BeamonPeople.ViewModel.ScreenDoesNotExist.js"></script>
+    <script type="text/javascript" src="scripts/BeamonPeople.ViewModel.ScreenPeople.js"></script>
+    <script type="text/javascript" src="scripts/BeamonPeople.ViewModel.ScreenStaff.js"></script>
+    <script type="text/javascript" src="scripts/BeamonPeople.ViewModel.ScreenStatistics.js"></script>
+    <script type="text/javascript" src="scripts/BeamonPeople.ViewModel.ScreenMissionmap.js"></script>
+    <script type="text/javascript" src="scripts/BeamonPeople.ViewModel.ScreenBeamonesque.js"></script>
+    <script type="text/javascript" src="scripts/BeamonPeople.ViewModel.ScreenRevenue.js"></script>
+    <script type="text/javascript" src="scripts/BeamonPeople.ViewModel.ScreenInstagram.js"></script>
+    <script type="text/javascript" src="scripts/BeamonPeople.ViewModel.ScreenBrewtime.js"></script>
+    <script type="text/javascript" src="scripts/BeamonPeople.ViewModel.ScreenPoster.js"></script>
+    <script type="text/javascript" src="scripts/BeamonPeople.ViewModel.ScreenActivities.js"></script>
+    <script type="text/javascript" src="scripts/BeamonPeople.ViewModel.ScreenManagementconference.js"></script>
+
+    <script type="text/javascript" src="scripts/main.js"></script>
+    <!-- endbuild -->
+</body>
+</html>

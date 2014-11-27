@@ -1,0 +1,48 @@
+html {
+  height:100%;
+  background-color: #d0d0d0;
+  font-family: "Open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-user-select:none;
+  -webkit-font-smoothing:antialiased;
+  font-size: 16px;
+  line-height: 1em;
+  outline: none;
+  -webkit-transition: all linear .5s;-moz-transition: all linear .5s;-ms-transition: all linear .5s;transition: all linear .5s;
+}
+
+body {
+  width:100%;
+  height:100%;
+  margin:0;
+  padding:0;
+  overflow:hidden;
+}
+
+section {
+  height: 100%;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  display: -webkit-flex;
+  -webkit-align-items: center;
+  -webkit-justify-content: center;
+  outline: none;
+  -webkit-user-select: none;
+
+  font-size: 3vmax;
+  color: #fff;
+}
+
+section small { font-size: 0.5em; line-height: 0.5em; opacity: 0.55; }
+
+h1 {
+  z-index: 999;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  padding: 0;
+  opacity: 0.36; 
+  font-weight: 100 !important;
+  text-align: center;
+  letter-spacing: -0.1em;
+}
