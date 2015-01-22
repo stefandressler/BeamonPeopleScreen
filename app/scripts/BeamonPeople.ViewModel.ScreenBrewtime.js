@@ -22,7 +22,7 @@ BeamonPeople.ScreenBrewtimeViewModel = function(params) {
       bodyClasses.push( o.heatmap );
       if( o.empty ) { bodyClasses.push( 'empty' ); }
       if( o.isBeamonOffice ) { bodyClasses.push( 'is-beamon' ); }
-      $('body').removeClass('hot medium cold empty is-beamon').addClass( bodyClasses.join( ' ' ) );
+      $('html').removeClass('hot medium cold empty is-beamon').addClass( bodyClasses.join( ' ' ) );
       // var color;
       // if (o.heatmap.indexOf('hot') !== -1) {
       //   color = '#d9392d';
@@ -40,7 +40,7 @@ BeamonPeople.ScreenBrewtimeViewModel = function(params) {
     function( o, x, t ) {      // onFail
       bodyClasses.push( o.heatmap );
       if( o.isBeamonOffice ) { bodyClasses.push( 'is-beamon' ); }
-      $('body').removeClass('hot medium cold empty is-beamon').addClass( 'empty ' + bodyClasses.join( ' ' ) );
+      $('html').removeClass('hot medium cold empty is-beamon').addClass( 'empty ' + bodyClasses.join( ' ' ) );
     },
     function() {      // onProgress
     }
