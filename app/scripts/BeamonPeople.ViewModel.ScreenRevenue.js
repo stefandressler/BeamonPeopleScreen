@@ -22,6 +22,12 @@ BeamonPeople.ScreenRevenueViewModel = function(params) {
   var m = [];
   var r = [];
   var p = [];
+
+  // cheat by adding 2x empty values to have e.g. febr point drawn at the beginning of march
+  r.push('0');
+  r.push('0');
+
+  // add the rest
   _.each(params.o.elements, function(el) {
     m.push(el.date);
     r.push(el.revenue);
@@ -41,7 +47,7 @@ BeamonPeople.ScreenRevenueViewModel = function(params) {
   Chart.defaults.global.scaleFontStyle = 'bold';
 
   Chart.defaults.global.scaleOverride = true;
-  Chart.defaults.global.scaleSteps = 6;
+  Chart.defaults.global.scaleSteps = 7;
   Chart.defaults.global.scaleStepWidth = 1000;
   Chart.defaults.global.scaleStartValue = 0;
 
@@ -57,14 +63,14 @@ BeamonPeople.ScreenRevenueViewModel = function(params) {
       datasets: [
           {
             label: '2010',
-            fillColor: 'rgba(20,20,20,0.2)',
-            strokeColor: 'rgba(20,20,20,0.2)',
+            fillColor: 'rgba(60,60,60,0.2)',
+            strokeColor: 'rgba(60,60,60,0.2)',
             data: rChunks[0]
           },
           {
             label: '2011',
-            fillColor: 'rgba(50,50,50,0.2)',
-            strokeColor: 'rgba(50,50,50,0.2)',
+            fillColor: 'rgba(70,70,70,0.2)',
+            strokeColor: 'rgba(70,70,70,0.2)',
             data: rChunks[1]
           },
           {
@@ -75,15 +81,21 @@ BeamonPeople.ScreenRevenueViewModel = function(params) {
           },
           {
             label: '2013',
-            fillColor: 'rgba(110,110,110,0.2)',
-            strokeColor: 'rgba(110,110,110,0.2)',
+            fillColor: 'rgba(90,90,90,0.2)',
+            strokeColor: 'rgba(90,90,90,0.2)',
             data: rChunks[3]
           },
           {
             label: '2014',
+            fillColor: 'rgba(110,110,110,0.2)',
+            strokeColor: 'rgba(110,110,110,0.2)',
+            data: rChunks[4]
+          },
+          {
+            label: '2015',
             fillColor: 'rgba(151,187,205,0.3)',
             strokeColor: 'rgba(151,187,205,1)',
-            data: rChunks[4]
+            data: rChunks[5]
           }
       ]
   };

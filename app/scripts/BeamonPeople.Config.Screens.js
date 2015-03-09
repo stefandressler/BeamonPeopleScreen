@@ -28,7 +28,7 @@ BeamonPeople.ScreensJsConfig = function() {
 
   // timeout when autoReload is set
   this.injectWorksheets = [
-    //{ modelName: 'brewtime', model: {} }
+    { modelName: 'brewtime', model: {} }
   ];
 
   // possible background color CSS classes

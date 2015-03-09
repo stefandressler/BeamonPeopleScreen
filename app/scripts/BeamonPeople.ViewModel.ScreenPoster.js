@@ -8,7 +8,7 @@ var BeamonPeople = BeamonPeople || {};
 BeamonPeople.ScreenPosterViewModel = function(params) {
   'use strict';
 
-  this.title = 'Veckans Löpsedel';
+  this.title = 'Veckans Löpsedel v' + BeamonPeople.Utils.GetCurrentWeek(new Date());
 
   /** @type {KnockoutObservable} */
   this.items = ko.observableArray([]);

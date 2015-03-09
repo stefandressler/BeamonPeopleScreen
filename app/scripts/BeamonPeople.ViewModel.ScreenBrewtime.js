@@ -42,8 +42,7 @@ BeamonPeople.ScreenBrewtimeViewModel = function(params) {
       if( o.isBeamonOffice ) { bodyClasses.push( 'is-beamon' ); }
       $('html').removeClass('hot medium cold empty is-beamon').addClass( 'empty ' + bodyClasses.join( ' ' ) );
     },
-    function() {      // onProgress
-    }
+    function() {} // onProgress
   );
 
 
