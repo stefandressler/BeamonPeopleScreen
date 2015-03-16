@@ -60,6 +60,30 @@
 
     <template id="screen-does-not-exist-template"><section><strong>Screen does not exist!</strong></section></template>
 
+    <template id="screen-birthdays-template">
+      <section>
+        <h1 data-bind="text: title"></h1>
+        <div id="screen-birthdays" class="padH">
+          <img src="images/balloons.png" />
+          <div data-bind="foreach: birthdays">
+            <p>
+              <span data-bind="text: $data[0]"></span>
+              <strong data-bind="text: $data[1]"></strong>!
+            </p>
+          </div>
+  
+          <div data-bind="visible: birthdays().length === 0">
+            <p>
+              <strong>Ingen Beamon People födds idag.</strong>
+            </p>
+            <p>
+              <span>Dags att hitta en nyanställd som uppfyller kravet!</span>
+            </p>
+          </div>
+        </div>
+      </section>
+    </template>
+
     <template id="screen-people-template">
       <section>
         <h1 data-bind="text: title"></h1>
@@ -123,6 +147,38 @@
           <p>
             <strong data-bind="text: brewTimestamp()">b</strong>
           </p>
+        </div>
+      </section>
+    </template>
+
+    <template id="screen-consultprofile-template">
+      <section>
+        <h1 data-bind="text: title"></h1>
+        <div id="screen-consultprofile">
+
+          <img data-bind="attr: { src: image() }" />
+
+          <div class="padH">
+            <span data-bind="foreach: tags" class="tags">
+              <small data-bind="text: $data"></small>
+            </span>
+
+            <p>
+              <strong data-bind="text: consult()"></strong>
+            </p>
+            <p>
+              <span data-bind="text: roles()"></span>
+            </p>
+            
+            <hr />
+
+            <p>
+              <strong data-bind="text: qa().question"></strong>
+            </p>
+            <p>
+              <blockquote data-bind="text: qa().answer"></blockquote>
+            </p>
+        
         </div>
       </section>
     </template>
@@ -192,6 +248,7 @@
     <script src="bower_components/instafeed.js/instafeed.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
     <script src="bower_components/chartjs/Chart.min.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -215,7 +272,9 @@
     <script type="text/javascript" src="scripts/BeamonPeople.ViewModel.ScreenBeamonesque.js"></script>
     <script type="text/javascript" src="scripts/BeamonPeople.ViewModel.ScreenRevenue.js"></script>
     <script type="text/javascript" src="scripts/BeamonPeople.ViewModel.ScreenInstagram.js"></script>
+    <script type="text/javascript" src="scripts/BeamonPeople.ViewModel.ScreenBirthdays.js"></script>
     <script type="text/javascript" src="scripts/BeamonPeople.ViewModel.ScreenBrewtime.js"></script>
+    <script type="text/javascript" src="scripts/BeamonPeople.ViewModel.ScreenConsultprofile.js"></script>
     <script type="text/javascript" src="scripts/BeamonPeople.ViewModel.ScreenPoster.js"></script>
     <script type="text/javascript" src="scripts/BeamonPeople.ViewModel.ScreenActivities.js"></script>
     <script type="text/javascript" src="scripts/BeamonPeople.ViewModel.ScreenManagementconference.js"></script>

@@ -46,18 +46,73 @@
   line-height: 1.2em;
 }
 
+#screen-consultprofile {
+  font-size: 3.2vw;
+  line-height: 1.2em;
+
+  p {
+    margin: 0.3em 0
+  }
+  hr {
+    border: none;
+    margin-bottom: 1.42em;
+  }
+  img {
+    width: 21vw; 
+    border-radius: 120% 80% 120% 70%/180% 60% 80% 70%; 
+    float: right; 
+    margin: 0 1.42em;
+  }
+  span { 
+    color: rgba(255, 255, 255, 0.3); 
+  }
+  blockquote { 
+    margin: 0;
+    color: rgba(255, 255, 255, 1); 
+    font-style: normal;
+  }
+  .tags {
+    float: right;
+    small {
+      padding: 1px 8px; 
+      background-color: rgba(255,255,255,0.3); 
+      color: rgba(0,0,0,0.7); 
+      border-radius: 30% 110%/170% 40%;
+    }
+  }
+}
+
 #screen-poster {
   font-size: 3.2vw;
   line-height: 1.2em;
 }
 
 #screen-staff { 
-  font-size: 2.3vw;
+  font-size: 2.1vw;
   line-height: 1em;
   text-align: justify; 
 }
 #screen-staff small { 
   white-space: nowrap; 
+}
+
+#screen-birthdays { 
+  font-size: 3.42vw;
+  line-height: 1.2em;
+  color: rgba(255, 255, 255, 0.5); 
+}
+#screen-birthdays strong { 
+  color: rgba(255, 255, 255, 1); 
+  white-space: nowrap; 
+}
+#screen-birthdays img {
+  z-index: -20;
+  position: fixed; 
+  top: -50%; 
+  left: 0; 
+  width: auto; 
+  height: 200%;
+  opacity: 0.42;
 }
 
 #screen-statistics { 
