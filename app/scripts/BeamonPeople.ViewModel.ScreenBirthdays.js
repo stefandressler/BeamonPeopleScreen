@@ -12,9 +12,9 @@ BeamonPeople.ScreenBirthdaysViewModel = function(params) {
 
   this.title = 'Födelsedagar';
 
-  this._lastSlogan = '';
-
   this.today = moment().format('MM-DD');
+
+  this._lastSlogan = '';
 
   this.slogans = [
     'Grattis på födelsedagen',

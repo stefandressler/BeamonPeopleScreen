@@ -190,10 +190,10 @@ BeamonPeople.ScreensViewModel = function(params, config) {
   this.gsCallback = function(data, tabletop) {
     self.isLoading(false);
 
-    // inject Beamon People BrewTime (KaffeApp)
+    // inject worksheet, e.g. Beamon People BrewTime (KaffeApp)
     _.each(config.injectWorksheets, function(injectWorksheet) {
       tabletop.model_names.push(injectWorksheet.modelName);
-      tabletop.models.brewtime = injectWorksheet.model;
+      tabletop.models[injectWorksheet.modelName] = injectWorksheet.model;
     });
 
     // fetch
