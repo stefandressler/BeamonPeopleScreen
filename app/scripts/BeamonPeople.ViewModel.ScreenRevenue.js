@@ -47,7 +47,7 @@ BeamonPeople.ScreenRevenueViewModel = function(params) {
   Chart.defaults.global.scaleFontStyle = 'bold';
 
   Chart.defaults.global.scaleOverride = true;
-  Chart.defaults.global.scaleSteps = 7;
+  Chart.defaults.global.scaleSteps = 10;
   Chart.defaults.global.scaleStepWidth = 1000;
   Chart.defaults.global.scaleStartValue = 0;
 

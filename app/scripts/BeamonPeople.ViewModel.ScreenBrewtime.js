@@ -17,7 +17,7 @@ BeamonPeople.ScreenBrewtimeViewModel = function(params) {
   this.brewTimestamp = ko.observable();
 
   var bodyClasses = [];
-  $.getJSON( 'http://beamon-people-brew-time.herokuapp.com/api' ).then(
+  $.getJSON( 'https://beamon-people-brew-time.herokuapp.com/api' ).then(
     function( o ) {   // onSuccess
       bodyClasses.push( o.heatmap );
       if( o.empty ) { bodyClasses.push( 'empty' ); }
